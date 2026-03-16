@@ -8,33 +8,36 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Node
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node
 node_modules
 dist
 dist-ssr
 coverage
+*.lcov
 
 # Environment variables (JANGAN upload ke GitHub)
-
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
 # Prisma
-
 prisma/dev.db
 prisma/dev.db-journal
 
 # OS
-
 .DS_Store
 Thumbs.db
 
 # Editor directories and files
-
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -45,5 +48,47 @@ Thumbs.db
 *.sw?
 
 # Misc
-
 *.local
+
+# Yarn v3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Cache
+.npm
+.eslintcache
+.stylelintcache
+.node_repl_history
+.cache
+.parcel-cache
+
+# Frameworks
+.next
+out
+.nuxt
+.svelte-kit
+.docusaurus
+.serverless
+.fusebox
+
+# Vite
+**/.vitepress/cache
+vite.config.*.timestamp*
+
+# Other
+lib-cov
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/Release
+jspm_packages/
+web_modules/
+*.tsbuildinfo
+*.tgz
+.yarn-integrity
