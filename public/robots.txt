@@ -1,0 +1,19 @@
+# robots.txt for BNet.id
+# https://www.b-net.id
+
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /LoginAdminPanel
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+
+# Sitemap
+Sitemap: https://b-net.id/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+

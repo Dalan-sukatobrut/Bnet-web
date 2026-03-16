@@ -12,6 +12,7 @@ import {
   Facebook,
   Youtube,
 } from "lucide-react";
+import FallbackImage from "./FallbackImage";
 
 const ContactCTA = () => {
   return (
@@ -25,14 +26,12 @@ const ContactCTA = () => {
       <div className="w-full flex flex-col lg:flex-row flex-grow">
         {/* SISI KIRI: GAMBAR */}
         <div className="w-full lg:w-[45%] h-[40vh] lg:h-auto relative shrink-0">
-          <img
+          <FallbackImage
             src="/images/clients/aset bg kontak kami.png"
             alt="Contact Support"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#0f172a]"></div>
-
-          
         </div>
 
         {/* SISI KANAN: KONTEN */}
@@ -59,13 +58,16 @@ const ContactCTA = () => {
                 </h3>
                 <div className="space-y-3 text-[14px] lg:text-[15px]">
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Mail size={16} className="text-slate-500" /> bnet.info@b-net.id
+                    <Mail size={16} className="text-slate-500" />{" "}
+                    bnet.info@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" /> (0411) 3681124
+                    <Phone size={16} className="text-slate-500" /> (0411)
+                    3681124
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <MessageSquare size={16} className="text-slate-500" /> 0811-4440-0723 {" "}
+                    <MessageSquare size={16} className="text-slate-500" />{" "}
+                    0811-4440-0723{" "}
                     <span className="text-slate-500 font-medium">(Aly)</span>
                   </p>
                 </div>
@@ -77,10 +79,12 @@ const ContactCTA = () => {
                 </h3>
                 <div className="space-y-3 text-[14px] lg:text-[15px]">
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Mail size={16} className="text-slate-500" /> marketing@b-net.id
+                    <Mail size={16} className="text-slate-500" />{" "}
+                    marketing@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" /> 0811-4440-0723{" "}
+                    <Phone size={16} className="text-slate-500" />{" "}
+                    0811-4440-0723{" "}
                     <span className="text-slate-500 font-medium">(Aly)</span>
                   </p>
                 </div>
@@ -129,7 +133,7 @@ const ContactCTA = () => {
               onClick={() =>
                 window.open(
                   "https://wa.me/6281144400723?text=Halo%20BNet%2C%20saya%20tertarik%20untuk%20konsultasi%20gratis%20mengenai%20layanan%20internet.",
-                  "_blank"
+                  "_blank",
                 )
               }
               className="w-full sm:w-auto bg-yellow-400 hover:bg-white text-[#0f172a] font-[900] py-4 px-10 rounded-xl flex items-center justify-center gap-3 text-[12px] tracking-[0.15em] uppercase transition-all shadow-xl shadow-yellow-400/10 active:scale-95 font-['Montserrat']"
@@ -138,10 +142,22 @@ const ContactCTA = () => {
             </button>
             <div className="flex items-center gap-3">
               {[
-                { icon: <Linkedin size={18} />, link: "https://www.linkedin.com/in/bnet-id-b29587136" },
-                { icon: <Instagram size={18} />, link: "https://www.instagram.com/bnetid" },
-                { icon: <Facebook size={18} />, link: "https://www.facebook.com/BNetIDInfo" },
-                { icon: <Youtube size={18} />, link: "https://www.youtube.com/channel/UCE34BvmZ3-BiXeJ4fsF03Nw" },
+                {
+                  icon: <Linkedin size={18} />,
+                  link: "https://www.linkedin.com/in/bnet-id-b29587136",
+                },
+                {
+                  icon: <Instagram size={18} />,
+                  link: "https://www.instagram.com/bnetid",
+                },
+                {
+                  icon: <Facebook size={18} />,
+                  link: "https://www.facebook.com/BNetIDInfo",
+                },
+                {
+                  icon: <Youtube size={18} />,
+                  link: "https://www.youtube.com/channel/UCE34BvmZ3-BiXeJ4fsF03Nw",
+                },
               ].map((social, idx) => (
                 <a
                   key={idx}

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;600;800&display=swap');
 
 
-/* 1. RESET DEFAULT BROWSER */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,37 +11,36 @@
 html, body {
   width: 100%;
   height: 100%;
-  /* Menghilangkan sela putih saat ditarik ke atas (bounce effect) */
+  
   overscroll-behavior-y: none; 
   overflow-x: hidden;
-  background-color: #020617; /* Warna dasar gelap */
+  background-color: #020617; 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-/* 2. PERBAIKAN ROOT (Ini yang paling penting) */
+
 #root {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 0; /* Menghapus padding 2rem yang menyebabkan garis putih */
-  max-width: none; /* Menghapus batasan 1280px agar gambar mentok ke pinggir */
-  text-align: left; /* Mengubah dari center ke left agar tulisan rapi */
-}
+  padding: 0; 
+  max-width: none; 
+  text-align: left; 
 
-/* 3. OPTIMALISASI GAMBAR */
+
 img {
   display: block;
   max-width: 100%;
 }
 
-/* 4. TYPOGRAPHY & LINKS (Opsional untuk kerapian) */
+
 a {
   font-weight: 500;
   color: inherit;
   text-decoration: inherit;
 }
 
-/* 5. KHUSUS UNTUK ANIMASI LOGO (Jika masih digunakan) */
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -57,7 +56,7 @@ a {
   }
 }
 
-/* 6. UTILITY UNTUK NAVBAR FIXED */
+
 .fixed {
   position: fixed;
 }

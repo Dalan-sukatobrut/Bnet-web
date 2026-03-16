@@ -1,18 +1,12 @@
+/* Tailwind CSS v4 */
 @import "tailwindcss";
 
+/* Global Styles */
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
-
-/* Efek Gelombang Latar Belakang */
-.wave-bg {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1d4ed8 100%);
-  position: relative;
-  min-height: 100vh;
-}
-
 
 html {
   scroll-behavior: smooth;

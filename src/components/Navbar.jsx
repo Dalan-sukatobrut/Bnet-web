@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import FallbackImage from "./FallbackImage";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,11 +10,11 @@ const Navbar = () => {
 
   // Daftar navigasi utama
   const navItems = [
-    { name: 'Beranda', path: '/', id: 'beranda' },
-    { name: 'Layanan', path: '/layanan', id: 'layanan' },
-    { name: 'Produk', path: '/produk', id: 'produk' },
-    { name: 'Klien', path: '/klien', id: 'klien' },
-    { name: 'Kontak', path: '/kontak', id: 'kontak' },
+    { name: "Beranda", path: "/", id: "beranda" },
+    { name: "Layanan", path: "/layanan", id: "layanan" },
+    { name: "Produk", path: "/produk", id: "produk" },
+    { name: "Klien", path: "/klien", id: "klien" },
+    { name: "Kontak", path: "/kontak", id: "kontak" },
   ];
 
   const handleNavClick = (e, item) => {
@@ -21,8 +22,8 @@ const Navbar = () => {
     setOpen(false);
 
     document.title =
-      item.name === 'Beranda'
-        ? 'BNet | Celebes Media Jaringan'
+      item.name === "Beranda"
+        ? "BNet | Celebes Media Jaringan"
         : `BNet | Celebes Media Jaringan - ${item.name}`;
 
     if (location.pathname === item.path) {
@@ -33,7 +34,7 @@ const Navbar = () => {
           element.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
           top: elementPosition - offset,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }
     } else {
@@ -42,21 +43,20 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (location.pathname === '/tentang-kami') {
-      document.title = 'BNet | Celebes Media Jaringan - Tentang Kami';
+    if (location.pathname === "/tentang-kami") {
+      document.title = "BNet | Celebes Media Jaringan - Tentang Kami";
     }
   }, [location]);
 
   return (
     <nav className="fixed top-0 inset-x-0 z-[100] bg-[#0f172a]/95 backdrop-blur-xl shadow-2xl font-sans">
       <div className="w-full h-20 px-6 md:px-10 flex items-center justify-between">
-
         {/* Logo - Bnet ID */}
         <div
           onClick={(e) => handleNavClick(e, navItems[0])}
           className="flex items-center cursor-pointer group"
         >
-          <img
+          <FallbackImage
             src="/images/clients/logo-bnet.png"
             alt="BNet Logo"
             className="h-12 md:h-16 w-auto transition-transform group-hover:scale-105"
@@ -73,13 +73,13 @@ const Navbar = () => {
                 href={item.path}
                 onClick={(e) => handleNavClick(e, item)}
                 className={`relative px-2 py-1 transition-all duration-300
-                  ${isActive ? 'text-yellow-400' : 'text-white/90 hover:text-yellow-400'}
+                  ${isActive ? "text-yellow-400" : "text-white/90 hover:text-yellow-400"}
                 `}
               >
                 {item.name}
                 <span
                   className={`absolute -bottom-1 left-0 h-[2px] bg-yellow-400 transition-all duration-300
-                    ${isActive ? 'w-full' : 'w-0 hover:w-full'}
+                    ${isActive ? "w-full" : "w-0 hover:w-full"}
                   `}
                 />
               </a>
@@ -91,9 +91,9 @@ const Navbar = () => {
             to="/tentang-kami"
             onClick={() => setOpen(false)}
             className={`relative px-4 py-2 rounded-lg border border-white/10 transition-all duration-300 ${
-              location.pathname === '/tentang-kami'
-                ? 'text-yellow-400 border-yellow-400/50 bg-yellow-400/5'
-                : 'text-white/90 hover:text-yellow-400 hover:border-yellow-400/50'
+              location.pathname === "/tentang-kami"
+                ? "text-yellow-400 border-yellow-400/50 bg-yellow-400/5"
+                : "text-white/90 hover:text-yellow-400 hover:border-yellow-400/50"
             }`}
           >
             Tentang Kami
@@ -112,28 +112,29 @@ const Navbar = () => {
       {/* Mobile Menu - Menghapus class 'uppercase' */}
       <div
         className={`md:hidden absolute top-20 inset-x-0 bg-[#0f172a] border-t border-white/10 transition-all duration-300 shadow-2xl
-          ${open ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}
+          ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"}
         `}
       >
         <div className="flex flex-col py-6">
-          {[...navItems, { name: 'Tentang Kami', path: '/tentang-kami', id: 'tentang-kami' }].map(
-            (item) => (
-              <a
-                key={item.name}
-                href={item.path}
-                onClick={(e) => handleNavClick(e, item)}
-                className={`px-8 py-3 text-sm sm:text-base font-semibold tracking-wide transition-all
+          {[
+            ...navItems,
+            { name: "Tentang Kami", path: "/tentang-kami", id: "tentang-kami" },
+          ].map((item) => (
+            <a
+              key={item.name}
+              href={item.path}
+              onClick={(e) => handleNavClick(e, item)}
+              className={`px-8 py-3 text-sm sm:text-base font-semibold tracking-wide transition-all
                   ${
                     location.pathname === item.path
-                      ? 'text-yellow-400 bg-white/5 border-l-4 border-yellow-400'
-                      : 'text-white/80 hover:text-yellow-400 hover:bg-white/5'
+                      ? "text-yellow-400 bg-white/5 border-l-4 border-yellow-400"
+                      : "text-white/80 hover:text-yellow-400 hover:bg-white/5"
                   }
                 `}
-              >
-                {item.name}
-              </a>
-            )
-          )}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
     </nav>

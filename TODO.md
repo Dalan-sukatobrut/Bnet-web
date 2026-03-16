@@ -1,0 +1,1 @@
+# GitHub Push to New Repo: https://github.com/Dalan-sukatobrut/Bnet-web.git\n\n- [ ] Step 1: Stage all changes `git add .`\n- [ ] Step 2: Commit changes\n- [ ] Step 3: Update remote to new repo\n- [ ] Step 4: Push to new origin main\n- [ ] Step 5: Verify `git status`, clone test\n\nOthers can `git clone https://github.com/Dalan-sukatobrut/Bnet-web.git` after complete.
