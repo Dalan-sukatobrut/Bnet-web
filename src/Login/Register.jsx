@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import FallbackImage from "../components/FallbackImage";
-import { authApiCall } from "../config/api";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -12,32 +11,59 @@ export default function Register() {
     password: "",
   });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
+
+    const { name, email, password } = formData;
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const data = await authApiCall("/admin-portal/register", {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://localhost:3001/api/admin-portal/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-portal-key": "bnet-secure-portal-key-2025",
+          },
+          credentials: "include",
+          body: JSON.stringify({ name, email, password }),
+        },
+      );
+
+      const data = await response.json();
 
       if (!data.success) {
-        setError(data.error);
+        setError(data.error || "Registration failed");
         setLoading(false);
         return;
       }
 
-      // Setelah registrasi berhasil, arahkan ke halaman login
-      alert("✅ Registrasi berhasil! Silakan login untuk melanjutkan.");
-      navigate("/login");
-    } catch (err) {
-      console.error("Register Error:", err);
-      setError(`Terjadi kesalahan: ${err.message}`);
+      setSuccess("Registration successful! Redirecting to login...");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+      setError("An error occurred. Ensure backend is running.");
       setLoading(false);
     }
   };
@@ -76,15 +102,24 @@ export default function Register() {
       </div>
 
       {/* Right Side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-8 bg-white overflow-y-auto">
-        <div className="w-full max-w-md py-8">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-8 bg-white">
+        <div className="w-full max-w-md">
+          {/* Back Button */}
+          <button
+            onClick={() => navigate("/login")}
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-6 font-medium"
+          >
+            <ArrowLeft size={20} />
+            Back to Login
+          </button>
+
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Create Account.
+              Create Account
             </h1>
             <p className="text-gray-600 text-sm">
-              Sign up to get started with BNetID
+              Sign up for a new account to get started.
             </p>
           </div>
 
@@ -95,39 +130,44 @@ export default function Register() {
             </div>
           )}
 
+          {/* Success Message */}
+          {success && (
+            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-5">
+              <p className="text-sm font-medium">✅ {success}</p>
+            </div>
+          )}
+
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Full Name */}
+            {/* Name */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Full Name
               </label>
               <input
                 type="text"
+                name="name"
                 required
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50 hover:bg-white"
-                placeholder="Username or Full Name"
+                placeholder="Enter your full name"
                 value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
             {/* Email */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
-                Email
+                Email Address
               </label>
               <input
                 type="email"
+                name="email"
                 required
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50 hover:bg-white"
                 placeholder="Enter your email"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -136,62 +176,46 @@ export default function Register() {
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 Password
               </label>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  required
-                  minLength={6}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50 hover:bg-white pr-10"
-                  placeholder="Minimum 6 characters"
-                  value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                </button>
-              </div>
+              <input
+                type="password"
+                name="password"
+                required
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50 hover:bg-white"
+                placeholder="Create a password (min 6 chars)"
+                value={formData.password}
+                onChange={handleChange}
+              />
             </div>
 
-            {/* Terms Checkbox */}
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                required
-                className="w-4 h-4 border-gray-300 rounded cursor-pointer"
-              />
-              <span className="text-sm text-gray-600">
-                I agree to the{" "}
-                <Link to="#" className="text-blue-600 hover:underline">
-                  Terms & Conditions
-                </Link>
-              </span>
-            </label>
-
-            {/* Sign Up Button */}
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Creating account..." : "Create Account"}
+              {loading ? "Creating Account..." : "Create Account"}
             </button>
           </form>
 
+          {/* Divider */}
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white text-gray-500">Or</span>
+            </div>
+          </div>
+
           {/* Sign In Link */}
-          <p className="text-center text-sm text-gray-600 mt-8">
+          <p className="text-center text-sm text-gray-600">
             Already have an account?{" "}
-            <Link
-              to="/login"
+            <button
+              onClick={() => navigate("/login")}
               className="text-blue-600 hover:underline font-semibold"
             >
               Sign In
-            </Link>
+            </button>
           </p>
         </div>
       </div>
