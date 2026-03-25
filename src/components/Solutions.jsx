@@ -59,7 +59,7 @@ const Solutions = () => {
     m365: {
       title: "Microsoft 365",
       subtitle: "Productivity Cloud Solution",
-      desc: "Solusi lengkap kolaborasi kerja dengan aplikasi Office premium, penyimpanan cloud aman, dan fitur keamanan tingkat tinggi.",
+      desc: "Microsoft 365 tersedia melalui BNet sebagai reseller, memberikan kemudahan akses layanan produktivitas dengan dukungan yang lebih optimal.",
       image:
         imageMap["Microsoft 365"] ||
         "/images/clients/microsoft%20365%20bg%20page.png",

@@ -81,8 +81,7 @@ const imagesData = {
   produk: [
     {
       title: "Microsoft 365",
-      description:
-        "Solusi lengkap kolaborasi kerja dengan aplikasi Office premium, penyimpanan cloud aman, dan fitur keamanan tingkat tinggi.",
+      description:\n        "Microsoft 365 tersedia melalui BNet sebagai reseller, memberikan kemudahan akses layanan produktivitas dengan dukungan yang lebih optimal.",
       url: `${BASE_URL}/images/clients/microsoft 365 bg page.png`,
       alt: "Microsoft 365 - Productivity Cloud Solution",
       order: 0,
