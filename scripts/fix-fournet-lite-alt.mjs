@@ -11,7 +11,7 @@ async function fixFourNetLiteAlt() {
       "Support teknis 24/7",
       "Modem/router gratis selama berlangganan",
       "Installation dalam 3-7 hari kerja",
-      ,
+      
     ]
       .map((f) => f.trim())
       .join(", ");

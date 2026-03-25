@@ -63,10 +63,12 @@ const Packages = () => {
         image: "/images/clients/layanan2.png",
         desc: "Layanan broadband untuk solusi bisnis small & middle dengan performa stabil dan dukungan teknis 24 jam.",
         features: [
-          "Bandwidth sesuai permintaan",
-          "CIR Ratio 1:4",
-          "Service Level Agreement",
-          "Support 24 jam",
+          "Bandwidth sesuai permintaan (10-100 Mbps)",
+          "CIR Ratio 1:4 untuk performa stabil",
+          "Service Level Agreement 98%",
+          "Support teknis 24/7",
+          "Modem/router gratis selama berlangganan",
+          "Installation dalam 3-7 hari kerja",
         ],
         link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20FourNet%20Lite",
       },
@@ -213,7 +215,7 @@ const Packages = () => {
           {displayPlans.map((plan, index) => (
             <div
               key={index}
-              className={`reveal-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-xl flex flex-col group transition-all duration-300 min-h-[480px] ${
+              className={`reveal-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-xl flex flex-col group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 min-h-[480px] ${
                 isVisible ? "active" : ""
               }`}
               style={{ animationDelay: `${index * 120}ms` }}
