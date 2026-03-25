@@ -58,17 +58,15 @@ const ContactCTA = () => {
                 </h3>
                 <div className="space-y-3 text-[14px] lg:text-[15px]">
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Mail size={16} className="text-slate-500" />{" "}
-                    bnet.info@b-net.id
+                    <Mail size={16} className="text-slate-500" /> info@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" /> (0411)
-                    3681124
+                    <Phone size={16} className="text-slate-500" /> 0811 4440
+                    0721
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
                     <MessageSquare size={16} className="text-slate-500" />{" "}
-                    0811-4440-0723{" "}
-                    <span className="text-slate-500 font-medium">(Aly)</span>
+                    0811-4430-2898
                   </p>
                 </div>
               </div>
@@ -79,8 +77,7 @@ const ContactCTA = () => {
                 </h3>
                 <div className="space-y-3 text-[14px] lg:text-[15px]">
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Mail size={16} className="text-slate-500" />{" "}
-                    marketing@b-net.id
+                    <Mail size={16} className="text-slate-500" /> info@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
                     <Phone size={16} className="text-slate-500" />{" "}

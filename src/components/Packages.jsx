@@ -256,18 +256,14 @@ const Packages = () => {
 
               {/* Konten - Menggunakan flex-grow untuk mendorong tombol ke bawah */}
               <div className="p-5 md:p-6 flex flex-col flex-grow bg-white">
-                <div className="mb-4">
-                  <h3 className="text-lg md:text-xl font-black text-slate-900 mb-2 uppercase tracking-tight font-['Montserrat'] group-hover:text-blue-600 transition-colors">
+                <div className="mb-6">
+                  <h3 className="text-lg md:text-xl font-black text-slate-900 mb-4 uppercase tracking-tight font-['Montserrat'] group-hover:text-blue-600 transition-colors">
                     {plan.title}
                   </h3>
-                  <div className="border-l-4 border-blue-500 pl-3">
-                    <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                      {plan.desc}
-                    </p>
-                  </div>
+                  <hr className="w-full h-1.5 bg-blue-500 border-0 my-3 rounded-full group-hover:bg-blue-600 group-hover:h-2 transition-all duration-300" />
                 </div>
 
-                <div className="flex flex-col flex-grow border-t border-slate-100 pt-4 mt-auto">
+                <div className="flex flex-col flex-grow pt-6 mt-auto">
                   <span className="text-[11px] md:text-[12px] font-black text-slate-900 uppercase tracking-widest mb-3 block font-['Montserrat']">
                     DETAIL PAKET
                   </span>

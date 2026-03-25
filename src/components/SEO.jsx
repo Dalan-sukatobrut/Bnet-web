@@ -63,7 +63,7 @@ const SEO = ({
           description: defaultDescription,
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+624113681124",
+            telephone: "+6281144400721",
             contactType: "customer service",
             areaServed: "ID",
             availableLanguage: ["Indonesian", "English"],
@@ -93,8 +93,8 @@ const SEO = ({
           "@type": "LocalBusiness",
           name: "BNet.id - Celebes Media Jaringan",
           image: "https://b-net.id/images/clients/logo-bnet.png",
-          telephone: "+624113681124",
-          email: "bnet.info@b-net.id",
+          telephone: "+6281144400721",
+          email: "info@b-net.id",
           url: "https://b-net.id",
           priceRange: "$$",
           address: {

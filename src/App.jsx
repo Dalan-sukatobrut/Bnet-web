@@ -130,10 +130,10 @@ const Footer = () => (
           />
           <div className="text-slate-400 text-sm space-y-1">
             <p className="font-bold text-yellow-400 text-base">
-              (0411) 3681124
+              0811 4440 0721
             </p>
             <p className="hover:text-white transition-colors cursor-pointer">
-              bnet.info@b-net.id
+              info@b-net.id
             </p>
             <div className="pt-2 opacity-80 text-xs">
               <p className="font-semibold text-white">
