@@ -61,8 +61,8 @@ const ContactCTA = () => {
                     <Mail size={16} className="text-slate-500" /> info@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" /> 0811 4440
-                    0721
+                    <Phone size={16} className="text-slate-500" />{" "}
+                    0811-4430-2898
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
                     <MessageSquare size={16} className="text-slate-500" />{" "}
@@ -81,7 +81,7 @@ const ContactCTA = () => {
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
                     <Phone size={16} className="text-slate-500" />{" "}
-                    0811-4440-0723{" "}
+                    0811-4430-2898{" "}
                     <span className="text-slate-500 font-medium">(Aly)</span>
                   </p>
                 </div>
@@ -129,7 +129,7 @@ const ContactCTA = () => {
             <button
               onClick={() =>
                 window.open(
-                  "https://wa.me/6281144400723?text=Halo%20BNet%2C%20saya%20tertarik%20untuk%20konsultasi%20gratis%20mengenai%20layanan%20internet.",
+                  "https://wa.me/6281144302898?text=Halo%20BNet%2C%20saya%20tertarik%20untuk%20konsultasi%20gratis%20mengenai%20layanan%20internet.",
                   "_blank",
                 )
               }

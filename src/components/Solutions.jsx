@@ -71,7 +71,7 @@ const Solutions = () => {
         "Update Otomatis",
       ],
       icon: "/images/clients/microsoft%20365%20pilihan.png",
-      link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Microsoft%20365",
+      link: "https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Microsoft%20365",
     },
     vps: {
       title: "VPS",
@@ -86,7 +86,7 @@ const Solutions = () => {
         "Pilihan OS Luas",
       ],
       icon: "/images/clients/vps%20icon%20pilihan.png",
-      link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20VPS",
+      link: "https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20VPS",
     },
     colocation: {
       title: "Colocation Server",
@@ -103,7 +103,7 @@ const Solutions = () => {
         "Physical Security",
       ],
       icon: "/images/clients/colocation%20logo.png",
-      link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Colocation%20Server",
+      link: "https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Colocation%20Server",
     },
     celebeshost: {
       title: "celebeshost.id",

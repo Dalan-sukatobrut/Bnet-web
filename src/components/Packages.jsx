@@ -44,7 +44,7 @@ const Packages = () => {
         image: "/images/clients/layanan4.png",
         desc: "Produk internet Fiber to the home untuk klien ritel dengan harga yang terjangkau dan kecepatan yang stabil.",
         features: ["Fiber to home", "Unlimited quota", "Free instalasi"],
-        link: "https://mywifi.b-net.id/",
+        link: "https://mywifi.b-net.id/auth/register",
       },
       {
         title: "FourNet",
@@ -89,7 +89,7 @@ const Packages = () => {
   );
 
   const specialLinks = {
-    "2BeHome": "https://mywifi.b-net.id/",
+    "2BeHome": "https://mywifi.b-net.id/auth/register",
     // Add more special cases here as needed
   };
 
