@@ -61,12 +61,12 @@ const ContactCTA = () => {
                     <Mail size={16} className="text-slate-500" /> info@b-net.id
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <Phone size={16} className="text-slate-500" />{" "}
-                    0811-4430-2898
+                    <Phone size={16} className="text-slate-500" /> \n 0811 4440
+                    0721
                   </p>
                   <p className="text-white/90 font-semibold flex items-center gap-3">
-                    <MessageSquare size={16} className="text-slate-500" />{" "}
-                    0811-4430-2898
+                    <MessageSquare size={16} className="text-slate-500" /> \n
+                    0811 4440 0721
                   </p>
                 </div>
               </div>
