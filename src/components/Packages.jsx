@@ -56,7 +56,7 @@ const Packages = () => {
           "Service Level Agreement",
           "IP Public & Support 24/7",
         ],
-        link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20FourNet",
+        link: "https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20FourNet",
       },
       {
         title: "FourNet Lite",
@@ -70,7 +70,7 @@ const Packages = () => {
           "Modem/router gratis selama berlangganan",
           "Installation dalam 3-7 hari kerja",
         ],
-        link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20FourNet%20Lite",
+        link: "https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20FourNet%20Lite",
       },
       {
         title: "Bandwidth On Demand",
@@ -82,7 +82,7 @@ const Packages = () => {
           "IP Public",
           "SLA 99% & Support 24 jam",
         ],
-        link: "https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Bandwidth%20On%20Demand",
+        link: "https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20Bandwidth%20On%20Demand",
       },
     ],
     [],
@@ -136,7 +136,7 @@ const Packages = () => {
                 : ["Layanan Profesional", "Support 24/7"],
               link:
                 specialLinks[img.title] ||
-                `https://wa.me/6281144400723?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20${encodeURIComponent(img.title || "BNetID")}`,
+                `https://wa.me/6281144302898?text=Halo%20Admin,%20saya%20ingin%20daftar%20layanan%20${encodeURIComponent(img.title || "BNetID")}`,
             }));
 
           console.log("[Packages] Using API plans:", apiPlans);

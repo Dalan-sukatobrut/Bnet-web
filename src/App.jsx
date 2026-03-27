@@ -100,7 +100,7 @@ const MainLayout = () => {
         </a>
 
         <a
-          href="https://wa.me/6281144400723"
+          href="https://wa.me/6281144302898"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:bg-[#25D366] transition-all duration-500 text-[#25D366] hover:text-white"
@@ -130,7 +130,7 @@ const Footer = () => (
           />
           <div className="text-slate-400 text-sm space-y-1">
             <p className="font-bold text-yellow-400 text-base">
-              0811 4440 0721
+              0811-4430-2898
             </p>
             <p className="hover:text-white transition-colors cursor-pointer">
               info@b-net.id
