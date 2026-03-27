@@ -1,85 +1,241 @@
-# 📖 Penjelasan Setup Proyek BNetID
+# 📖 BNetID Project Setup Guide
 
-## 🚀 Langkah-langkah Setelah Git Clone
+Aplikasi web fullstack menggunakan:
 
-Berikut panduan lengkap dan bertahap untuk menjalankan proyek ini setelah `git clone`. Proyek ini adalah aplikasi web **React (Vite) + Express backend + Prisma (MySQL) + TailwindCSS**.
+* ⚛️ React (Vite)
+* 🚀 Express.js (Backend API)
+* 🗄️ Prisma ORM + MySQL
+* 🎨 TailwindCSS
 
-### 1. **Install Dependencies**
+---
 
-Buka terminal di root folder proyek:
+## ⚙️ Requirements
+
+Pastikan sudah terinstall:
+
+* Node.js >= 18
+* MySQL >= 5.7 / 8
+* npm / yarn / pnpm
+
+Cek versi:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+## 🚀 Installation
+
+Clone repository:
+
+```bash
+git clone <repo-url>
+cd <nama-project>
+```
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### 2. **Setup Database (MySQL)**
+---
 
-- **Pastikan MySQL berjalan** (lokal/remote, port 3306).
-- **Buat file `.env`** di root proyek:
-  ```
-  DATABASE_URL="mysql://USERNAME:PASSWORD@localhost:3306/nama_database"
-  ```
-  Ganti dengan kredensial MySQL Anda.
-- **Jalankan Prisma**:
-  ```bash
-  npx prisma generate
-  npx prisma migrate dev
-  ```
+## 🔐 Environment Setup
 
-### 3. **Setup Data Awal (Recommended)**
+Buat file `.env` di root project:
 
-Masukkan gambar homepage default:
+```env
+DATABASE_URL="mysql://USERNAME:PASSWORD@localhost:3306/nama_database"
+PORT=3001
+```
+
+Contoh:
+
+```env
+DATABASE_URL="mysql://root:password@localhost:3306/bnetid"
+PORT=3001
+```
+
+---
+
+## 🗄️ Database Setup (Prisma)
+
+Jalankan perintah berikut:
+
+```bash
+npx prisma generate
+npx prisma migrate dev
+```
+
+### 🔁 Jika terjadi error migration:
+
+```bash
+npx prisma migrate reset
+```
+
+> ⚠️ Perintah ini akan menghapus seluruh data database
+
+---
+
+## 🌱 Seed / Data Awal (Recommended)
+
+Insert data gambar homepage:
 
 ```bash
 node scripts/insertHomepageImages.js
 ```
 
-Verifikasi:
+Cek data:
 
 ```bash
 node scripts/listAllImages.js
 ```
 
-### 4. **Buat Admin User**
+---
+
+## 👤 Setup Admin User
 
 ```bash
 node scripts/create-admin.js
 ```
 
-### 5. **Jalankan Server**
+---
 
-**Satu terminal** (fullstack):
+## ▶️ Menjalankan Aplikasi
+
+### 🔹 Mode Fullstack (Recommended)
 
 ```bash
 npm run dev
 ```
 
-Atau **terpisah**:
+Menjalankan:
 
-- Terminal 1 (Backend port 3001): `npm run server`
-- Terminal 2 (Frontend port 5173): `npm run dev`
+* Frontend (Vite) → http://localhost:5173
+* Backend (Express) → http://localhost:3001
 
-### 6. **Akses Aplikasi**
+---
+
+### 🔹 Mode Terpisah
+
+Terminal 1 (Backend):
+
+```bash
+npm run server
+```
+
+Terminal 2 (Frontend):
+
+```bash
+npm run dev
+```
+
+---
+
+## 🌐 Akses Aplikasi
 
 | Halaman     | URL                               |
 | ----------- | --------------------------------- |
 | Frontend    | http://localhost:5173             |
 | Admin Panel | http://localhost:5173/admin/panel |
-| API/Images  | http://localhost:3001             |
+| API Server  | http://localhost:3001             |
+
+---
+
+## 🏗️ Build Production
+
+Build project:
+
+```bash
+npm run build
+```
+
+Jalankan production:
+
+```bash
+npm start
+```
+
+---
+
+## 📁 Struktur Proyek
+
+```
+.
+├── src/
+│   ├── components/     # Komponen React
+│   ├── pages/          # Halaman frontend
+│   └── server/         # Express backend
+│
+├── prisma/
+│   ├── schema.prisma   # Database schema
+│   └── migrations/     # Migration files
+│
+├── scripts/            # Script helper (seed, admin, dll)
+├── public/             # Static assets
+└── .env                # Environment config
+```
+
+---
 
 ## 🔧 Troubleshooting
 
-| Masalah                  | Solusi                          |
-| ------------------------ | ------------------------------- |
-| `DATABASE_URL not found` | Buat `.env`, restart terminal.  |
-| Connection refused       | Cek MySQL & DATABASE_URL.       |
-| Port conflict            | Ganti port di `vite.config.js`. |
-| No images                | Jalankan script insert.         |
+| Masalah                | Solusi                                 |
+| ---------------------- | -------------------------------------- |
+| DATABASE_URL not found | Pastikan `.env` ada & restart terminal |
+| MySQL tidak connect    | Cek service MySQL & kredensial         |
+| Port sudah digunakan   | Ubah port di `.env` / vite.config.js   |
+| Data tidak muncul      | Jalankan script seed                   |
+| Error Prisma           | Jalankan prisma migrate reset          |
 
-## 📂 Folder Scripts
+---
 
-Lihat `scripts/README.md` untuk utility database (list, fix, insert data).
+## 📂 Scripts Utility
 
-**Proyek siap! 🎉** Backup DB sebelum jalankan script delete/reset.
+Lihat dokumentasi lengkap di:
 
-_Last Updated: Berdasarkan struktur proyek saat ini._
+```
+scripts/README.md
+```
+
+Digunakan untuk:
+
+* Insert data
+* List data
+* Fix data
+* Create admin
+
+---
+
+## ⚠️ Important Notes
+
+* Selalu backup database sebelum menjalankan script reset/delete
+* Jangan commit file `.env` ke repository
+* Gunakan `.env.example` untuk sharing config
+
+---
+
+## ✅ Status
+
+✔️ Siap untuk development
+✔️ Siap untuk deployment (dengan konfigurasi tambahan)
+
+---
+
+## 🎉 Penutup
+
+Proyek sudah siap digunakan dan dikembangkan lebih lanjut.
+Jika ada kendala, silakan cek bagian troubleshooting atau hubungi developer.
+
+
+
+
+Email: AdminBNetID@gmail.com
+Password: 17028B
+
+
+cara masuk ke login admin 
+url/loginadminpanel
