@@ -1,1 +1,11 @@
-# Fix React UNSAFE_componentWillMount Warning&#10;&#10;## Status: 6/6 ✅&#10;&#10;## Plan Steps:&#10;- [x] 1. Confirm plan with user (Approved)&#10;- [x] 2. Edit src/main.jsx: Remove StrictMode wrapper&#10;- [x] 3. Create TODO.md for tracking&#10;- [x] 4. Restart dev server and verify warning gone (User confirmed: "sekarang sudah tidak ada error nya")&#10;- [x] 5. Test app functionality (Dev server running normally at localhost:5174, all files served)&#10;- [x] 6. Complete task&#10;&#10;✅ **FIX COMPLETE**: Warning eliminated by removing StrictMode. App runs cleanly.
+# BNetID Setup Guide Update - Progress
+
+## [x] 1. Plan approved & implemented
+
+## [x] 2. Updated Penjelasan.md with concise git clone guide
+
+## [x] 3. Created .env.example
+
+## [ ] 4. User test: npm install → prisma → seed → dev → admin login
+
+## [x] 5. Task complete

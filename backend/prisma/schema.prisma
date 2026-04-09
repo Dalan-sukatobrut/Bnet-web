@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Tabel Users
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique @db.VarChar(191)
+  password        String   @db.VarChar(191)
+  name            String   @db.VarChar(191)
+  role            String   @default("USER") @db.VarChar(50)
+  resetToken      String?  @db.VarChar(255)
+  resetTokenExpiry DateTime? @map("reset_token_expiry")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+  
+  // Relasi: 1 user bisa punya banyak posts
+  posts     Post[]
+
+  @@map("users")
+}
+
+// Tabel Posts
+model Post {
+  id        String   @id @default(cuid())
+  title     String   @db.VarChar(255)
+  content   String?  @db.Text
+  published Boolean  @default(false)
+  authorId  String   @map("author_id") @db.VarChar(191)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  
+  // Relasi: Post punya 1 author
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
+  @@map("posts")
+}
+
+// Tabel Categories
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique @db.VarChar(100)
+  slug      String   @unique @db.VarChar(100)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("categories")
+}
+
+// Tabel Images/Gambar
+model Image {
+  id        String   @id @default(cuid())
+  title     String   @db.VarChar(255)
+  description String? @db.Text
+  url       String   @db.Text
+  category  String   @db.VarChar(50)
+  alt       String   @db.VarChar(255)
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([title, category])
+  @@index([category])
+  @@index([published])
+  @@map("images")
+}

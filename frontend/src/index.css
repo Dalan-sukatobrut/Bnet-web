@@ -1,0 +1,13 @@
+/* Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
